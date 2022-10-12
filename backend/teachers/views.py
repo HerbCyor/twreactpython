@@ -27,4 +27,4 @@ class CreateScheduledClassAPIView(APIView):
             scheduled_class_serializer = ScheduledClassSerializer(scheduled_class,many=False)
             return Response(scheduled_class_serializer.data, status = HTTP_201_CREATED)
 
-        return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+        return Response({"message":"validation errors","errors":serializer.errors}, status=HTTP_400_BAD_REQUEST)
